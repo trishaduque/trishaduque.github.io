@@ -1,7 +1,3 @@
-
-// editable_js/load_data.js
-// Art Institute of Chicago artworks (ES2015+).
-
 const AIC_BASE = 'https://api.artic.edu/api/v1/artworks';
 const AIC_FIELDS = [
   'id','title','artist_title','department_title','place_of_origin',
