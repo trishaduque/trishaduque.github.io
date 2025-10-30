@@ -1,7 +1,3 @@
-
-// editable_js/template_category.js
-// CATEGORY VIEW — group by department (default) with Show more/less
-
 const safe = (v, f='—') => (v==null||v==='')?f:v;
 const num  = (n) => new Intl.NumberFormat().format(n);
 
