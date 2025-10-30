@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PGC Restaurants — Same Data, Different Stories</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Project 2</h1>
+      <p>Prince George’s County Food Inspections (Live API)</p>
+    </header>
+
+    <section class="loading-section">
+      <h2>Load Live Data</h2>
+      <div id="loading-status" class="status-display">
+        <p class="status-message">Ready to load data from the open API</p>
+      </div>
+      <button id="load-data-button" class="load-button">Load Restaurant Data</button>
+      <div id="data-summary" class="data-summary hidden">
+        <p>
+          <span id="record-count">0</span> records •
+          <span id="compliance-rate">0%</span> compliant •
+          <span id="city-count">0</span> cities
+        </p>
+      </div>
+      <small>Source: <a href="https://data.princegeorgescountymd.gov/Health/Food-Inspection/umjn-t2iz" target="_blank" rel="noreferrer">PGC Open Data</a></small>
+    </section>
+
+    <section class="view-controls hidden" id="view-controls">
+      <h2>Choose Your View</h2>
+      <div class="view-buttons">
+        <button id="card-view-btn" class="view-button active">
+          <span class="view-icon">🗂️</span>
+          <div class="view-info"><strong>Card</strong><small>Browse restaurants</small></div>
+        </button>
+        <button id="table-view-btn" class="view-button">
+          <span class="view-icon">📊</span>
+          <div class="view-info"><strong>Table</strong><small>Compare inspections</small></div>
+        </button>
+        <button id="category-view-btn" class="view-button">
+          <span class="view-icon">🧭</span>
+          <div class="view-info"><strong>Category</strong><small>Group by city</small></div>
+        </button>
+        <button id="stats-view-btn" class="view-button">
+          <span class="view-icon">📈</span>
+          <div class="view-info"><strong>Stats</strong><small>County-wide metrics</small></div>
+        </button>
+      </div>
+    </section>
+
+    <main class="display-container hidden" id="display-container">
+      <!-- Card View -->
+      <div id="card-view" class="view-panel active">
+        <div class="view-header">
+          <h3>Restaurant Discovery</h3>
+          <p>Browse where to eat</p>
+        </div>
+        <div id="card-grid" class="card-grid"></div>
+      </div>
+
+      <!-- Table View -->
+      <div id="table-view" class="view-panel">
+        <div class="view-header">
+          <h3>Inspection Comparison</h3>
+          <p>Click headers to sort</p>
+        </div>
+        <div class="table-container">
+          <table id="inspection-table" class="inspection-table">
+            <thead>
+              <tr>
+                <th data-key="name">Restaurant ▲▼</th>
+                <th data-key="city">City ▲▼</th>
+                <th data-key="inspection_date">Inspection Date ▲▼</th>
+                <th data-key="inspection_results">Results ▲▼</th>
+                <th data-key="risk_category">Risk ▲▼</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Category View -->
+      <div id="category-view" class="view-panel">
+        <div class="view-header">
+          <h3>Grouped by City</h3>
+          <p>Local patterns at a glance</p>
+        </div>
+        <div id="category-container" class="city-stats"></div>
+      </div>
+
+      <!-- Stats View -->
+      <div id="stats-view" class="view-panel">
+        <div class="view-header">
+          <h3>County-wide Analysis</h3>
+          <p>Aggregate metrics and breakdowns</p>
+        </div>
+        <div id="stats-grid" class="stats-grid"></div>
+        <div id="city-breakdown" class="city-breakdown">
+          <h4>Compliance by City (Top 10)</h4>
+          <div id="city-stats" class="city-stats"></div>
+        </div>
+      </div>
+    </main>
+
+    <section class="tutorial-insights hidden" id="tutorial-insights">
+      <h2>Information Architecture Insights</h2>
+      <div class="insights-grid">
+        <div class="insight-card">
+          <h4>Card View</h4>
+          <p><strong>User Goal:</strong> Pick a place to go.</p>
+          <p><strong>Emphasizes:</strong> identity & recency</p>
+          <p><strong>De-emphasizes:</strong> deep compliance details</p>
+        </div>
+        <div class="insight-card">
+          <h4>Table View</h4>
+          <p><strong>User Goal:</strong> Compare safety records.</p>
+          <p><strong>Emphasizes:</strong> sortable facts</p>
+          <p><strong>De-emphasizes:</strong> discovery</p>
+        </div>
+        <div class="insight-card">
+          <h4>Category View</h4>
+          <p><strong>User Goal:</strong> How is my city doing?</p>
+          <p><strong>Emphasizes:</strong> grouping + counts</p>
+          <p><strong>De-emphasizes:</strong> county trends</p>
+        </div>
+        <div class="insight-card">
+          <h4>Stats View</h4>
+          <p><strong>User Goal:</strong> Big-picture patterns.</p>
+          <p><strong>Emphasizes:</strong> aggregates</p>
+          <p><strong>De-emphasizes:</strong> individual items</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
