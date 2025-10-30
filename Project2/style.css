@@ -1,0 +1,353 @@
+/* BASE STYLES - Students can modify and extend */
+:root {
+    --primary-color: #007cba;
+    --secondary-color: #28a745;
+    --background-color: #f8f9fa;
+    --card-background: #ffffff;
+    --text-color: #333;
+    --border-color: #ddd;
+    --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: system-ui, sans-serif;
+    margin: 0;
+    padding: 1rem;
+    background: var(--background-color);
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.view-selector {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.view-button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+
+.view-button:hover {
+    background: #005a87;
+}
+
+.view-button.active {
+    background: var(--secondary-color);
+}
+
+.display-container {
+    background: var(--card-background);
+    border-radius: 8px;
+    padding: 2rem;
+    min-height: 400px;
+    box-shadow: var(--shadow);
+}
+
+.loading {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    padding: 2rem;
+}
+
+.error {
+    background: #fee;
+    border: 1px solid #fcc;
+    color: #c00;
+    padding: 1.5rem;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* UTILITY CLASSES FOR STUDENTS */
+.view-title {
+    margin: 0 0 1rem 0;
+    color: var(--text-color);
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.5rem;
+}
+
+.view-description {
+    color: #666;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+/* CARD GRID LAYOUT */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.restaurant-card {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    background: var(--card-background);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.restaurant-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* TABLE LAYOUT */
+.restaurant-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.restaurant-table th,
+.restaurant-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.restaurant-table th {
+    background: #f8f9fa;
+    font-weight: 600;
+}
+
+.restaurant-table tr:hover {
+    background: #f8f9fa;
+}
+
+/* CATEGORY GROUPS */
+.category-section {
+    margin-bottom: 2rem;
+}
+
+.category-header {
+    background: var(--primary-color);
+    color: white;
+    padding: 1rem;
+    margin: 0;
+    border-radius: 8px 8px 0 0;
+}
+
+.category-items {
+    border: 1px solid var(--border-color);
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+}
+
+.category-item {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.category-item:last-child {
+    border-bottom: none;
+}
+
+/* STATS LAYOUT */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--primary-color), #0056b3);
+    color: white;
+    border-radius: 8px;
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.todo-implementation {
+    background: #fff3cd;
+    border: 2px dashed #ffc107;
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    color: #856404;
+}
+
+.asst-box {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+}
+
+/* === Added styles for AIC views === */
+.table-wrapper { overflow-x: auto; }
+.data-table { width: 100%; border-collapse: collapse; min-width: 720px; background: white; }
+.data-table th, .data-table td { padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--border-color); text-align: left; }
+.data-table th { cursor: pointer; background: #f3f4f6; }
+
+.category-group { background: white; border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; }
+.category-header h3 { margin: 0 0 0.25rem; }
+.category-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr; gap: 0.5rem; }
+@media (min-width: 768px) { .category-list { grid-template-columns: 1fr 1fr; } }
+.category-item { border: 1px solid var(--border-color); border-radius: 6px; padding: 0.5rem 0.75rem; background: #fafafa; }
+.category-item .item-title { font-weight: 600; }
+.category-item .item-sub { font-size: 0.9rem; color: #555; }
+
+.muted { color: #666; font-weight: 400; }
+
+.stats-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-top: 0.5rem; }
+@media (min-width: 768px) { .stats-grid { grid-template-columns: repeat(3, 1fr); } }
+.stat-card { background: white; border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem; }
+.stat-card .stat-label { font-size: 0.9rem; color: #666; }
+.stat-card .stat-value { font-size: 2rem; font-weight: 700; }
+
+.two-col { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-top: 1rem; }
+@media (min-width: 768px) { .two-col { grid-template-columns: 1fr 1fr; } }
+.panel { background: white; border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem; }
+
+.bar-list { list-style: none; padding: 0; margin: 0.25rem 0 0; }
+.bar-row { display: grid; grid-template-columns: 60px 1fr 40px; align-items: center; gap: 0.5rem; margin: 0.25rem 0; }
+.bar-label { font-size: 0.9rem; color: #555; }
+.bar-track { height: 8px; background: #e5e7eb; position: relative; border-radius: 999px; overflow: hidden; }
+.bar-fill { position: absolute; left: 0; top: 0; bottom: 0; background: #111827; }
+.bar-count { font-size: 0.9rem; color: #555; text-align: right; }
+
+
+
+/* === AIC Card tweaks === */
+.card-image { width: 100%; height: auto; border-radius: 6px; margin-bottom: 0.5rem; }
+.tag { display: inline-block; padding: 0.125rem 0.5rem; border-radius: 999px; background: #e5e7eb; font-size: 0.85rem; }
+.tag.success { background: #dcfce7; }
+
+
+
+/* === Modern Retro Theme & Contrast Fixes === */
+:root {
+  --retro-ink: #1f2937;       /* charcoal */
+  --retro-cream: #f8f5f2;     /* warm off-white */
+  --retro-mint: #b7e4c7;      /* mint */
+  --retro-coral: #ffb4a2;     /* coral */
+  --retro-mustard: #ffe082;   /* mustard */
+  --retro-sky: #a5c8ff;       /* powder blue */
+  --retro-lavender: #d0b3ff;  /* lavender */
+  --retro-rose: #f7cad0;      /* rose */
+}
+
+body { background: var(--retro-cream); color: var(--retro-ink); }
+
+.view-title {
+  color: var(--retro-ink);
+  border-left: 6px solid var(--retro-coral);
+  padding-left: 10px;
+}
+
+/* Cards */
+.restaurant-card {
+  background: white;
+  border: 2px solid rgba(0,0,0,0.06);
+  box-shadow: var(--shadow);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.restaurant-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.12); }
+
+/* Data Table */
+.data-table th { background: #fff; color: var(--retro-ink); border-bottom: 2px solid rgba(0,0,0,0.1); }
+.data-table td { color: var(--retro-ink); }
+.data-table tr:nth-child(even) td { background: rgba(0,0,0,0.02); }
+
+/* Category groups */
+.category-group { background: #fff; border: 2px solid rgba(0,0,0,0.07); }
+.category-item { background: rgba(0,0,0,0.02); }
+
+/* Stats */
+.stat-card { color: var(--retro-ink); }
+.stat-card .stat-label { color: rgba(0,0,0,0.6); }
+.stat-card .stat-value { color: var(--retro-ink); } /* ensure visible on white */
+
+.stats-grid .stat-card:nth-child(1) { background: var(--retro-coral); }
+.stats-grid .stat-card:nth-child(2) { background: var(--retro-mint); }
+.stats-grid .stat-card:nth-child(3) { background: var(--retro-sky); }
+.stats-grid .stat-card { border: 0; }
+
+.two-col .panel { background: #fff; border: 2px solid rgba(0,0,0,0.07); }
+.kv { display:flex; align-items:center; gap:.75rem; margin:.25rem 0; }
+.kv span { color: rgba(0,0,0,0.6); }
+
+/* Bars */
+.bar-track { background: rgba(0,0,0,0.08); }
+.bar-fill { background: var(--retro-ink); }
+.bar-label, .bar-count { color: var(--retro-ink); }
+
+/* Tags */
+.tag { background: var(--retro-rose); color: var(--retro-ink); }
+.tag.success { background: var(--retro-mustard); }
+
+
+
+/* === Accessibility & Interaction Tweaks === */
+.hidden { display: none !important; }
+
+/* Buttons */
+.js-toggle-group {
+  margin-top: .75rem;
+  border: 0;
+  padding: .5rem .75rem;
+  border-radius: 999px;
+  background: var(--retro-ink);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 0 rgba(0,0,0,.2);
+}
+.js-toggle-group:hover { filter: brightness(1.06); }
+
+/* Ensure readable text on colored stat cards */
+.stats-grid .stat-card { color: #111; }
+.stats-grid .stat-card .stat-label { color: #1f2937; opacity: .85; }
+.stats-grid .stat-card .stat-value { color: #0b0f1a; }
+
+/* Improve contrast of muted text everywhere */
+.muted { color: #374151; } /* darker gray for contrast */
+.category-header p.muted { color: #334155; }
+
+/* Category header accent (no low-contrast on blue) */
+.category-header { border-left: 6px solid var(--retro-mustard); padding-left: .5rem; }
+
+
+
+/* === Museum-like header hero and search === */
+.hero { display: grid; grid-template-columns: 1fr; gap: 1rem; align-items: end; margin-bottom: 1rem; }
+@media (min-width: 900px) { .hero { grid-template-columns: 2fr 1fr; } }
+.hero-text h1 { font-family: Georgia, 'Times New Roman', serif; font-size: clamp(1.75rem, 3vw, 2.6rem); letter-spacing: .02em; margin: 0 0 .25rem; }
+.hero-text p  { font-size: 1.05rem; opacity: .85; margin: 0; }
+.hero-search { display: flex; align-items: center; justify-content: end; }
+.search-input {
+  width: 100%; max-width: 520px; border: 2px solid rgba(0,0,0,.2); border-radius: 999px;
+  padding: .75rem 1rem; font-size: 1rem; background: #fff; outline: none;
+  box-shadow: 0 2px 0 rgba(0,0,0,.06);
+}
+.search-input:focus { border-color: var(--retro-ink); box-shadow: 0 0 0 3px rgba(0,0,0,.06); }
+
