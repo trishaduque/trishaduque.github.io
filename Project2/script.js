@@ -5,7 +5,6 @@ import showTable from './editable_js/template_table.js';
 
 import loadData from './editable_js/load_data.js';
 
-// Global handler for Category 'Show all / Show less' (works with string-return views)
 window.toggleCategoryGroup = function(sectionId, btn){
   try {
     const section = document.getElementById(sectionId);
@@ -17,7 +16,7 @@ window.toggleCategoryGroup = function(sectionId, btn){
     const nextExpanded = !isExpanded;
     btn.setAttribute('data-state', nextExpanded ? 'expanded' : 'collapsed');
     btn.textContent = nextExpanded ? 'Show less' : 'Show all (' + extras.length + ' more)';
-    // When expanding, show items; when collapsing, hide items
+    // when expanding, show items; when collapsing, hide items
     extras.forEach(el => el.classList.toggle('hidden', !nextExpanded));
   } catch (e) {
     console.error('toggleCategoryGroup error', e);
@@ -71,10 +70,7 @@ function showError(message) {
 // APPLICATION INITIALIZATION - PROVIDED
 // ============================================
 
-/**
- * Main application function - handles data loading and button setup
- * This pattern always works - no timing issues!
- */
+
 document.addEventListener("DOMContentLoaded", async () => {
   console.log("Starting application...");
 
@@ -84,7 +80,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     const data = await loadData();
     console.log(`Loaded ${data.length} items from API`);
 
-    // Set up button event handlers - this pattern always works!
     document.getElementById("btn-cards").onclick = () => {
       updateDisplay(showCards(data));
       updateButtonStates("cards");
@@ -116,8 +111,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
-
-// ===== Enhanced museum-like search & view wiring =====
 window._AIC_CURRENT_VIEW = 'cards';
 window._AIC_FILTER_TERM = '';
 
@@ -156,7 +149,6 @@ document.addEventListener('DOMContentLoaded', () => {
       renderCurrent();
     });
   }
-  // Rebind view buttons to update current view and re-render with filters
   const btns = {
     cards: document.getElementById('btn-cards'),
     table: document.getElementById('btn-table'),
