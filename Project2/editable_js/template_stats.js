@@ -1,7 +1,3 @@
-
-// editable_js/template_stats.js
-// STATISTICS VIEW — artworks
-
 const groupBy = (arr, keyFn) => {
   const m = new Map();
   for (const it of arr){
