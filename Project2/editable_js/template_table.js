@@ -1,7 +1,3 @@
-
-// editable_js/template_table.js
-// TABLE VIEW — artworks (ES2015+)
-
 const safe = (v, f='—') => (v == null || v === '') ? f : v;
 const sortBy = (arr, key, dir=1) => {
   const copy = [...arr];
