@@ -202,7 +202,6 @@ body {
     border-radius: 8px;
 }
 
-/* === Added styles for AIC views === */
 .table-wrapper { overflow-x: auto; }
 .data-table { width: 100%; border-collapse: collapse; min-width: 720px; background: white; }
 .data-table th, .data-table td { padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--border-color); text-align: left; }
@@ -236,15 +235,10 @@ body {
 .bar-count { font-size: 0.9rem; color: #555; text-align: right; }
 
 
-
-/* === AIC Card tweaks === */
 .card-image { width: 100%; height: auto; border-radius: 6px; margin-bottom: 0.5rem; }
 .tag { display: inline-block; padding: 0.125rem 0.5rem; border-radius: 999px; background: #e5e7eb; font-size: 0.85rem; }
 .tag.success { background: #dcfce7; }
 
-
-
-/* === Modern Retro Theme & Contrast Fixes === */
 :root {
   --retro-ink: #1f2937;       /* charcoal */
   --retro-cream: #f8f5f2;     /* warm off-white */
@@ -285,7 +279,7 @@ body { background: var(--retro-cream); color: var(--retro-ink); }
 /* Stats */
 .stat-card { color: var(--retro-ink); }
 .stat-card .stat-label { color: rgba(0,0,0,0.6); }
-.stat-card .stat-value { color: var(--retro-ink); } /* ensure visible on white */
+.stat-card .stat-value { color: var(--retro-ink); } 
 
 .stats-grid .stat-card:nth-child(1) { background: var(--retro-coral); }
 .stats-grid .stat-card:nth-child(2) { background: var(--retro-mint); }
@@ -306,8 +300,6 @@ body { background: var(--retro-cream); color: var(--retro-ink); }
 .tag.success { background: var(--retro-mustard); }
 
 
-
-/* === Accessibility & Interaction Tweaks === */
 .hidden { display: none !important; }
 
 /* Buttons */
@@ -324,21 +316,16 @@ body { background: var(--retro-cream); color: var(--retro-ink); }
 }
 .js-toggle-group:hover { filter: brightness(1.06); }
 
-/* Ensure readable text on colored stat cards */
 .stats-grid .stat-card { color: #111; }
 .stats-grid .stat-card .stat-label { color: #1f2937; opacity: .85; }
 .stats-grid .stat-card .stat-value { color: #0b0f1a; }
 
-/* Improve contrast of muted text everywhere */
-.muted { color: #374151; } /* darker gray for contrast */
+.muted { color: #374151; } 
 .category-header p.muted { color: #334155; }
 
-/* Category header accent (no low-contrast on blue) */
 .category-header { border-left: 6px solid var(--retro-mustard); padding-left: .5rem; }
 
 
-
-/* === Museum-like header hero and search === */
 .hero { display: grid; grid-template-columns: 1fr; gap: 1rem; align-items: end; margin-bottom: 1rem; }
 @media (min-width: 900px) { .hero { grid-template-columns: 2fr 1fr; } }
 .hero-text h1 { font-family: Georgia, 'Times New Roman', serif; font-size: clamp(1.75rem, 3vw, 2.6rem); letter-spacing: .02em; margin: 0 0 .25rem; }
