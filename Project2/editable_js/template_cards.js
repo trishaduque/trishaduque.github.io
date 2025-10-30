@@ -1,7 +1,3 @@
-
-// editable_js/template_cards.js
-// CARD VIEW — tailored for artworks (ES2015+)
-
 const safe = (v, f='—') => (v == null || v === '') ? f : v;
 const imageUrl = (image_id, w = 400) =>
   image_id ? `https://www.artic.edu/iiif/2/${image_id}/full/${w},/0/default.jpg` : null;
