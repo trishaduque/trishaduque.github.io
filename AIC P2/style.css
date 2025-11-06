@@ -1,0 +1,139 @@
+:root{
+  --bg:#0f0f13;
+  --panel:#161720;
+  --ink:#e8e6ea;
+  --muted:#b7b3bf;
+  --accent:#d86bff;
+  --accent-2:#6bc2ff;
+  --card:#1b1c27;
+  --pill:#2a2b39;
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+
+*{box-sizing:border-box}
+
+html,body{
+  margin:0;
+  background: radial-gradient(1200px 600px at 10% 0%, rgba(216,107,255,.15), transparent 60%),
+              radial-gradient(800px 800px at 90% 10%, rgba(107,194,255,.12), transparent 50%),
+              var(--bg);
+  color:var(--ink);
+  font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+}
+
+.container{
+  max-width:1100px;
+  margin:0 auto;
+  padding:24px;
+}
+
+header{
+  margin-bottom:20px;
+  padding:16px 20px;
+  background:var(--panel);
+  border:1px solid #242636;
+  border-radius:16px;
+  box-shadow:var(--shadow);
+}
+
+h1{
+  margin:0 0 6px 0;
+  font-size:28px;
+  letter-spacing:.3px;
+}
+
+.subtitle{color:var(--muted); margin:0}
+
+.controls{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:14px 0 0 0;
+}
+
+button{
+  background:var(--pill);
+  color:var(--ink);
+  border:1px solid #2f3141;
+  padding:10px 14px;
+  border-radius:999px;
+  cursor:pointer;
+  transition:transform .08s ease, background .2s ease, border-color .2s ease;
+}
+button:hover{ transform: translateY(-1px); background:#232536; }
+button.active{ border-color: var(--accent); box-shadow: 0 0 0 2px rgba(216,107,255,.25) inset; }
+
+main{
+  margin-top:18px;
+  background:var(--panel);
+  border:1px solid #242636;
+  border-radius:16px;
+  padding:18px;
+  min-height:300px;
+  box-shadow:var(--shadow);
+}
+
+.view-title{ margin:6px 0 4px; font-size:22px }
+.view-description{ color:var(--muted); margin:0 0 16px }
+
+.card-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px,1fr));
+  gap:16px;
+}
+
+.art-card{
+  background:var(--card);
+  border:1px solid #26283a;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow: var(--shadow);
+  display:flex;
+  flex-direction:column;
+}
+
+.art-image{ aspect-ratio: 4/3; background:#0e0f16; display:flex; align-items:center; justify-content:center; }
+.art-image img{ width:100%; height:100%; object-fit:cover; display:block; }
+.art-image.placeholder{ background: repeating-linear-gradient(45deg, #1e2030, #1e2030 10px, #1a1b27 10px, #1a1b27 20px); color:var(--muted);}
+.no-image{font-size:14px; opacity:.8}
+
+.art-meta{ padding:12px 14px }
+.art-title{ margin:0 0 6px; font-size:18px; line-height:1.3 }
+.art-artist{ margin:0 0 6px }
+.art-sub{ margin:0 0 10px; display:flex; gap:10px; flex-wrap:wrap; color:var(--muted) }
+.art-medium{ margin:0; color:var(--muted) }
+
+.table-wrap{ overflow:auto; border-radius:12px; border:1px solid #26283a }
+.data-table{ width:100%; border-collapse:collapse; min-width:720px; background:var(--card) }
+.data-table th, .data-table td{ padding:10px 12px; border-bottom:1px solid #26283a; text-align:left; }
+.data-table th.sortable{ cursor:pointer; user-select:none; }
+.data-table th:hover{ background:#1f2130 }
+.sort-indicator{ opacity:.8; margin-left:6px }
+
+.category-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(280px,1fr)); gap:16px }
+.category{ background:var(--card); border:1px solid #26283a; border-radius:14px; overflow:hidden }
+.category-header{ display:flex; align-items:center; justify-content:space-between; gap:10px; padding:12px 14px; background:#1f2130 }
+.category-header .pill{ background:var(--pill); border:1px solid #2f3141; padding:6px 10px; border-radius:999px; color:var(--muted) }
+.category-list{ list-style:none; margin:0; padding:12px 16px }
+.category-list li{ margin:6px 0; display:flex; gap:6px; flex-wrap:wrap }
+.category-list .title{ font-weight:600 }
+.category-list .by{ color:var(--muted) }
+
+.stats-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(160px,1fr)); gap:12px; margin-bottom:10px }
+.stat-card{ background:var(--card); border:1px solid #26283a; border-radius:14px; padding:16px; text-align:center }
+.stat-number{ font-size:28px; font-weight:700 }
+.stat-label{ color:var(--muted) }
+
+.subhead{ margin:14px 2px 8px }
+
+.bar-chart{ display:grid; gap:8px }
+.bar-row{ display:grid; grid-template-columns: 1fr 3fr auto; align-items:center; gap:8px }
+.bar-label{ color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis }
+.bar{ height:10px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); border-radius:999px; width:var(--w) }
+.bar-value{ text-align:right; min-width:32px }
+
+
+a, button { outline-color: var(--accent) }
+@media (max-width: 480px){
+  .art-sub{ gap:6px }
+}
