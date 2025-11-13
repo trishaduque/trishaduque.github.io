@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+
+<body>
+  <body>
+    <div class="container">
+
+      
+       <header class="header-inline">
+  <img src="pillar.png" class="pillar left-pill" alt="">
+  
+  <div class="title-block">
+    <h1>Art Institute of Chicago</h1>
+    <p class="subtitle">Explore! Artworks at the AIC</p>
+  </div>
+
+  <img src="pillar.png" class="pillar right-pill" alt="">
+</header>
+
+
+
+      <nav class="view-selector">
+  <div class="view-buttons">
+    <button class="view-button active" id="btn-cards" data-view="cards">Card View</button>
+    <button class="view-button" id="btn-table" data-view="table">Table View</button>
+    <button class="view-button" id="btn-categories" data-view="categories">Category View</button>
+    <button class="view-button" id="btn-stats" data-view="stats">Stats View</button>
+  </div>
+ <div class="toolbar">
+    <input id="search-input" type="text" placeholder="Search artworks or artists...">
+    <label class="mode-switch">
+      <span class="label">Live Mode</span>
+      <input type="checkbox" id="mode-toggle">
+      <span class="slider"></span>
+    </label>
+  </div>
+</nav>
+ 
+        <main class="display-container">
+            <div id="data-display">
+                <div class="loading">Loading Cool Art ...</div>
+            </div>
+        </main>
+
+<section class="info-box">
+  <h3>About This Gallery</h3>
+  <p>
+    This site explores the Art Institute of Chicago’s collection in two ways:
+    a curated “What to See in an Hour” tour based on the museum’s highlight guide,
+    and a live view powered by the Art Institute’s public API.
+  </p>
+
+  <h3>What to See in an Hour</h3>
+  <p>
+    In highlights mode, the page focuses on a small set of iconic works featured in the Art Institute’s
+    <a href="https://www.artic.edu/highlights/3/what-to-see-in-an-hour" target="_blank" rel="noopener">
+      “What to See in an Hour” guide
+    </a>.
+    These include pieces by artists such as Georges Seurat, Vincent van Gogh,
+    Georgia O’Keeffe...
+    It’s essentially a digital version of a one-hour museum walk.
+  </p>
+
+  <h3>Live Collection View</h3>
+  <p>
+    In live mode, the site pulls artworks directly from the Art Institute’s API
+    (<code>https://api.artic.edu/api/v1/artworks</code>). These API data dumps are updated nightly,
+    so the selection you see can change over time as records are added or updated.
+  </p>
+
+  <h3>How the Data Is Shown</h3>
+  <ul>
+    <li><strong>Card View:</strong> Visual tiles for browsing artworks one by one, with image and key details.</li>
+    <li><strong>Table View:</strong> A sortable data table for scanning titles, artists, dates, and departments.</li>
+    <li><strong>Category View:</strong> Groups works by museum department, like walking through different galleries.</li>
+    <li><strong>Stats View:</strong> Summarizes the current selection with counts by artist, department, and more.</li>
+  </ul>
+</section>
+
+
+        
+    <script type="module" src="./script.js" defer></script>
+</body>
+</html>
